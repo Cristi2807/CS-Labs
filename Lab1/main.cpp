@@ -2,6 +2,7 @@
 #include "caesar.h"
 #include "caesar_perm.h"
 #include "vigenere.h"
+#include "playfair.h"
 
 int main() {
 
@@ -57,6 +58,25 @@ int main() {
     //Check all the possible letters to encr and then decr in same letter
     cout << vigenere.decryptMessage(vigenere.encryptMessage("abcdefghijklmnopqrstuvwxyz")) << endl;
 
+    cout<<endl;
+
+
+    //!Letter Q , as most rarely used was omitted from alphabet in Playfair Cypher
+
+    PlayfairCypher playfair = PlayfairCypher("monarchy");
+
+    //Encryption gives GATKMZCKRPTX
+    cout << playfair.encryptMessage("instruments") << endl;
+
+    //Check if GATKMZCKRPTX gives INSTRUMENTSZ
+    cout << playfair.decryptMessage("GATKMZCKRPTX") << endl;
+
+    //Check if message remains the same
+    cout << playfair.decryptMessage(playfair.encryptMessage("MESSAGE")) << endl;
+
+    //Check if all possible letters encrypt and decrypt in same letters
+    cout << playfair.decryptMessage(
+            playfair.encryptMessage("ABCDEFGHIJKLMNOPRSTUVWXYZ"));
     cout<<endl;
 
     return 0;
