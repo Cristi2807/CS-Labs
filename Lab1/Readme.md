@@ -19,7 +19,8 @@
 * myModulo function was created to take into account the negative integers.
 
 
-```class CaesarCypher {
+```
+class CaesarCypher {
 private:
     int substitutionKey;
 
