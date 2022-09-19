@@ -23,7 +23,7 @@ public:
 
     static int myModulo(int a, int b);
 
-    string permKeyNoDuplic(string permKey);
+    static string permKeyNoDuplic(string permKey);
 };
 
 string CaesarPermCypher::encryptMessage(const string &message) const {
@@ -31,7 +31,7 @@ string CaesarPermCypher::encryptMessage(const string &message) const {
     string encryptedMessage;
 
     for (auto i: message) {
-        encryptedMessage += alphabet[myModulo(int(alphabet.find(toupper(i))) + substitutionKey, 26)];
+        encryptedMessage += alphabet[myModulo(int(alphabet.find(char(toupper(i)))) + substitutionKey, 26)];
     }
 
     return encryptedMessage;
@@ -42,7 +42,7 @@ string CaesarPermCypher::decryptMessage(const string &encryptedMessage) const {
     string decryptedMessage;
 
     for (auto i: encryptedMessage) {
-        decryptedMessage += alphabet[myModulo(alphabet.find(i) - substitutionKey, 26)];
+        decryptedMessage += alphabet[myModulo(int(alphabet.find(i)) - substitutionKey, 26)];
     }
 
     return decryptedMessage;
@@ -56,7 +56,7 @@ CaesarPermCypher::CaesarPermCypher(int substitutionKey, string permutationKey) :
         substitutionKey), permutationKey(std::move(permutationKey)) {
 
     set<char> charsWeHave;
-    string permKeyUniqueLetts = this->permKeyNoDuplic(this->permutationKey);
+    string permKeyUniqueLetts = CaesarPermCypher::permKeyNoDuplic(this->permutationKey);
     alphabet += permKeyUniqueLetts;
 
     for (char &permKeyUniqueLett: permKeyUniqueLetts) {

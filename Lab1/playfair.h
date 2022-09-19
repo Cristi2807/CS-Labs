@@ -18,7 +18,7 @@ public:
 
     string encryptMessage(string message);
 
-    string decryptMessage(string decryptedMessage);
+    string decryptMessage(string encryptedMessage);
 
     static string keyWordNoDuplic(string key);
 

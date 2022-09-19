@@ -25,7 +25,7 @@ string VigenereCypher::encryptMessage(const std::string &message) {
 
     for (int i = 0; i < message.length(); ++i) {
         encryptedMessage += char(myModulo(toupper(message[i]) - 65 +
-                                          toupper(keyWord[myModulo(i, keyWord.length())]) - 65, 26) + 65);
+                                          toupper(keyWord[myModulo(i, int(keyWord.length()))]) - 65, 26) + 65);
     }
 
     return encryptedMessage;
@@ -37,7 +37,7 @@ string VigenereCypher::decryptMessage(const string &encryptedMessage) {
 
     for (int i = 0; i < encryptedMessage.length(); ++i) {
         decryptedMessage += char(myModulo(toupper(encryptedMessage[i]) -
-                                          toupper(keyWord[myModulo(i, keyWord.length())]), 26) + 65);
+                                          toupper(keyWord[myModulo(i, int(keyWord.length()))]), 26) + 65);
     }
 
     return decryptedMessage;
