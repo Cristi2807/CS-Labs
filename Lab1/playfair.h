@@ -60,6 +60,7 @@ PlayfairCypher::PlayfairCypher(string keyWord) : keyWord(std::move(keyWord)) {
 string PlayfairCypher::encryptMessage(string message) {
     string encryptedMessage;
 
+    message.erase(remove_if(message.begin(), message.end(), ::isspace), message.end());
     transform(message.begin(), message.end(), message.begin(), ::toupper);
 
     for (int i = 0; i < message.length() - 1; ++i) {

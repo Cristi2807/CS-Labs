@@ -23,7 +23,9 @@ string CaesarCypher::encryptMessage(const string &message) const {
     string encryptedMessage;
 
     for (auto i: message) {
-        encryptedMessage += char(myModulo(int(toupper(i) - 65 + substitutionKey), 26) + 65);
+        if (i != 32) {
+            encryptedMessage += char(myModulo(int(toupper(i) - 65 + substitutionKey), 26) + 65);
+        }
     }
     return encryptedMessage;
 }

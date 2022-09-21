@@ -31,7 +31,9 @@ string CaesarPermCypher::encryptMessage(const string &message) const {
     string encryptedMessage;
 
     for (auto i: message) {
-        encryptedMessage += alphabet[myModulo(int(alphabet.find(char(toupper(i)))) + substitutionKey, 26)];
+        if (i != 32) {
+            encryptedMessage += alphabet[myModulo(int(alphabet.find(char(toupper(i)))) + substitutionKey, 26)];
+        }
     }
 
     return encryptedMessage;

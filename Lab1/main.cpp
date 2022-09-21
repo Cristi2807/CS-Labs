@@ -10,13 +10,13 @@ int main() {
     auto c = CaesarCypher(3);
 
     //Encryption gives LWLVPRQGDB
-    cout << c.encryptMessage("ITISMONDAY") << endl;
+    cout << c.encryptMessage("IT IS MONDAY") << endl;
 
     //Check if LWLVPRQGDB gives ITISMONDAY
     cout << c.decryptMessage("LWLVPRQGDB") << endl;
 
     //Simple test to see if message after encr and decr is the same
-    cout << c.decryptMessage(c.encryptMessage("ITISWEDNESDAY")) << endl;
+    cout << c.decryptMessage(c.encryptMessage("IT IS WEDNESDAY")) << endl;
 
     //Check all the possible letters to encr and then decr in same letter
     cout << c.decryptMessage(
@@ -36,7 +36,7 @@ int main() {
     cout << cp.decryptMessage("XDLYHWTLBA") << endl;
 
     //Simple test to see if message is same after encr and decr
-    cout << cp.decryptMessage(cp.encryptMessage("JUSTSMILE")) << endl;
+    cout << cp.decryptMessage(cp.encryptMessage("JUST SMILE")) << endl;
 
     //Check all the possible letters to encr and then decr in same letter
     cout << cp.decryptMessage(cp.encryptMessage("abcdefghijklmnopqrstuvwxyz")) << endl;
@@ -47,13 +47,13 @@ int main() {
     auto vigenere = VigenereCypher("LEMON");
 
     //Encryption gives LXFOPVEFRNHR
-    cout << vigenere.encryptMessage("attackatdawn") << endl;
+    cout << vigenere.encryptMessage("attack at dawn") << endl;
 
     //Check if LXFOPVEFRNHR gives ATTACKATDAWN
     cout << vigenere.decryptMessage("LXFOPVEFRNHR") << endl;
 
     //Check if message remains same after encr and decr
-    cout << vigenere.decryptMessage(vigenere.encryptMessage("SUNDAYEVENING")) << endl;
+    cout << vigenere.decryptMessage(vigenere.encryptMessage("SUNDAY EVENING")) << endl;
 
     //Check all the possible letters to encr and then decr in same letter
     cout << vigenere.decryptMessage(vigenere.encryptMessage("abcdefghijklmnopqrstuvwxyz")) << endl;
@@ -65,19 +65,21 @@ int main() {
 
     PlayfairCypher playfair = PlayfairCypher("monarchy");
 
-    //Encryption gives GATKMZCKRPTX
-    cout << playfair.encryptMessage("instruments") << endl;
+    //Encryption gives GATKMZCKRPKBMJRSIKMVRYTX
+    cout << playfair.encryptMessage("instruments create sounds") << endl;
 
-    //Check if GATKMZCKRPTX gives INSTRUMENTSZ
-    cout << playfair.decryptMessage("GATKMZCKRPTX") << endl;
+    //Check if GATKMZCKRPKBMJRSIKMVRYTX gives INSTRUMENTSCREATESOUNDS
+    cout << playfair.decryptMessage("GATKMZCKRPKBMJRSIKMVRYTX") << endl;
 
     //Check if message remains the same
-    cout << playfair.decryptMessage(playfair.encryptMessage("MESSAGE")) << endl;
+    cout << playfair.decryptMessage(playfair.encryptMessage("MESSAGE is secret")) << endl;
 
     //Check if all possible letters encrypt and decrypt in same letters
     cout << playfair.decryptMessage(
             playfair.encryptMessage("ABCDEFGHIJKLMNOPRSTUVWXYZ"));
     cout<<endl;
+
+
 
     return 0;
 }
