@@ -4,8 +4,8 @@
 #include "Classical Cyphers/caesar_perm.h"
 #include "Classical Cyphers/vigenere.h"
 #include "Classical Cyphers/playfair.h"
-#include "Symmetric Cyphers/stream.h"
-#include "Symmetric Cyphers/block.h"
+#include "Symmetric Cyphers/streamCipher.h"
+#include "Symmetric Cyphers/blockCipher.h"
 
 void checkCaesar() {
 

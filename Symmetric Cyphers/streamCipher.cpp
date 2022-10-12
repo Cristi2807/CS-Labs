@@ -1,22 +1,4 @@
-#ifndef CS_LABS_STREAM_H
-#define CS_LABS_STREAM_H
-
-#include <bitset>
-
-class RC4StreamCypher {
-private:
-    vector<int> key;
-    vector<int> S;
-
-public:
-
-    string encryptMessage(const string &message);
-
-    string decryptMessage(const string &encryptedMessage);
-
-    explicit RC4StreamCypher(const vector<int> &key);
-
-};
+#include "streamCipher.h"
 
 string RC4StreamCypher::encryptMessage(const string &message) {
 
@@ -72,6 +54,3 @@ RC4StreamCypher::RC4StreamCypher(const vector<int> &key) : key(key) {
     }
 
 }
-
-
-#endif //CS_LABS_STREAM_H
