@@ -1,6 +1,7 @@
 # The title of the work
 
 ### Course: Cryptography & Security
+
 ### Author: Boris Cristian
 
 ----
@@ -12,21 +13,22 @@
 * Implement Vigenere Cypher
 * Implement PLayfair Cypher
 
-
 ## Implementation description
 
-* Each cypher was implemented in dedicated header as a dedicated class with its' methods (encrypt,decrypt), which are the implementation of the cyphers.
+* Each cypher was implemented in dedicated header as a dedicated class with its' methods (encrypt,decrypt), which are
+  the implementation of the cyphers.
 * myModulo function was created to take into account the negative integers.
-
 
 ### Caesar Cypher
 
 #### Encryption
+
 Implementation of Caesar Cypher is pretty much simple,
 encryption implementation consisting of:
+
 * Omiting spaces when encrypting (line 2)
 * Encrypt char, by adding to a letter the key and do (mod 26).The reason
-of substracting 65, is to obtain the count of letters from 0. 
+  of substracting 65, is to obtain the count of letters from 0.
 
 ```
 1.for (auto i: message) {
@@ -53,11 +55,10 @@ that we substract from the encrypted letter the key and do (mod 26).
 
 First of all, we take the keyword, eliminate all letters that
 are repeating in it, and after we add all the alphabet letters,
-that were not added yet. Finally, we obtain the string alphabet, 
+that were not added yet. Finally, we obtain the string alphabet,
 which I have used, which is basically an alphabet permutation.
 Finally, I perform the same logic as in simple Caesar Cypher,
 Encrpyted letter is initial letter count number + key and (mod 26).
-
 
 ```
 for (auto i: message) {
@@ -67,7 +68,7 @@ for (auto i: message) {
     }
 ```
 
-#### Decrpytion 
+#### Decrpytion
 
 Decryption is the same as encrpytion, difference being that
 we take the encrypted letter and substract the key.
@@ -85,7 +86,7 @@ decryptedMessage += alphabet[myModulo(int(alphabet.find(i)) - substitutionKey, 2
 First of all, we remove spaces in the initial spaces.
 Next, we take the each letter count from initial message,
 add to it the corresponding letter from the keyWord and do
-(mod 26). It is similar to Caesar Cypher, but each time we do 
+(mod 26). It is similar to Caesar Cypher, but each time we do
 not add a constant key, but each corresponding keyWord's letter count.
 
 ```
@@ -109,7 +110,6 @@ the corresponding's keyWord letter and do (mod 26).
     }
 ```
 
-
 ### Playfair Cypher
 
 #### Encryption
@@ -121,7 +121,6 @@ letters are in the same row, column , or none of the first 2 cases.
 Important to mention is that alphabet matrix gives the letters
 for given indexes AND map_letters gives the coresponding indexes
 for given letter in the alphabet matrix.
-
 
 ```
 for (int i = 0; i < message.length(); i += 2) {
@@ -159,6 +158,7 @@ for (int i = 0; i < message.length(); i += 2) {
 Decryption is the same as encryption.
 
 ## Conclusions / Screenshots / Results
+
 All the results can be seen in the main.cpp program, where all the cyphers have been tested by me.
 The results correspond to the expected ones, as I was getting the same message after encryption and decryption.
 Also, all possible letters that cypher can encrypt, encrypt and decrypt in the same letters.

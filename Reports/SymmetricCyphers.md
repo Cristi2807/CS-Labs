@@ -43,14 +43,13 @@ the corresponding keyStreamByte. It is important to mention that
 
 ###### if msgByte XOR keyByte = cypherByte, then cypherByte XOR keyByte = msgByte.
 
-
 ### Blowfish Cypher
 
-#### Encryption 
+#### Encryption
 
 Blowfish cypher is encrypting 64-bit message chunks, and outputs 64 bits of cypher text.
 First of all the values of S box are hardcoded, and at the initialization I take care of XORing each
-32-bits of key with P[i] string array. 
+32-bits of key with P[i] string array.
 
 Next step of encrypting are the 16 rounds through which the plain text goes.
 
@@ -72,11 +71,11 @@ in F function , and the result is XORed with right 32-bits.
 The new right 32-bits is the old left 32-bits XORed with corresponding P[i].
 
 And, at the end there is the final XOR using the P[16] and P[17].
+
 ```
  encryptedMessage += bitset<32>(bitset<32>(r_side) xor bitset<32>(P[17])).to_string();
         encryptedMessage += bitset<32>(bitset<32>(l_side) xor bitset<32>(P[16])).to_string();
 ``` 
-
 
 #### Decryption
 
@@ -84,7 +83,6 @@ As this is a symmetric Cypher, the decryption process is the same with the encry
 the rounds go in reverse order, first round being the 17-one, and thus using the P[17] value first.
 
 At the end, the final XOR is done using the P[1] and P[0].
-
 
 ## Conclusions / Screenshots / Results
 
