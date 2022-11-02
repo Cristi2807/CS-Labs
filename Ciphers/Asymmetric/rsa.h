@@ -20,6 +20,10 @@ public:
 
     [[nodiscard]] string decryptMessage(const string &encryptedMessage) const;
 
+    [[nodiscard]] string encryptMessagePrivateKey(const string &message) const;
+
+    [[nodiscard]] string decryptMessagePublicKey(const string &encryptedMessage) const;
+
     static int gcd(int a, int b);
 
 };
